@@ -5,7 +5,7 @@ authors = ["Astley Chen <astleychen@gmail.com>"]
 
 [dependencies]
 futures = "0.1"
-hyper = "0.9"
+hyper = "0.10"
 irc = "0.11"
 mime = "0.2"
 regex = "0.1"
