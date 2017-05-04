@@ -1,2 +1,3 @@
 # status-bot
-An IRC bot to listen and save standups' activities and able to organize the saved data into a wiki-friendly format.
+
+An IRC bot which is able to record standups activities in a particular IRC channel and do status reporting in a media-wiki friendly format.
