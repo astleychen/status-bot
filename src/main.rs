@@ -145,7 +145,7 @@ impl StatusDb {
 }
 
 static STANDUP_NICK : &'static str =  "standups";
-static BOT_NICK: &'static str = "sbot";
+static BOT_NICK: &'static str = "RSbot";
 
 fn main() {
     let db = StatusDb::new();
