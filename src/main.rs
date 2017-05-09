@@ -152,7 +152,7 @@ fn main() {
     let config = Config {
         nickname: Some(String::from(BOT_NICK)),
         server: Some(String::from("irc.mozilla.org")),
-        channels: Some(vec![String::from("#status-bot"), String::from("#layout-tpe")]),
+        channels: Some(vec![String::from("#status-bot"), String::from("#layout-tpe"), String::from("#mozanime")]),
         .. Default::default()
     };
     let server = IrcServer::from_config(config).unwrap();
