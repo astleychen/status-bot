@@ -152,7 +152,7 @@ fn main() {
     let config = Config {
         nickname: Some(String::from(BOT_NICK)),
         server: Some(String::from("irc.mozilla.org")),
-        channels: Some(vec![String::from("#status-bot"), String::from("#layout-tpe"), String::from("#mozanime")]),
+        channels: Some(vec![String::from("#rust-bots")]),
         .. Default::default()
     };
     let server = IrcServer::from_config(config).unwrap();
@@ -183,7 +183,7 @@ fn main() {
                                     Ok(url) => {
                                         server.send_privmsg(&target, &format!("Report generated: {}", url))
                                     },
-                                    Err(_) => server.send_privmsg(&target, "network error")
+                                    Err(_) => server.send_privmsg(&target, "network error, call Astley...")
                                 }
                             });
                         }

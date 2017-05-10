@@ -17,7 +17,7 @@ pub fn paste(text: String) -> Result<String, &'static str> {
     let client = Client::new();
     let maybe_res = client.post(&api_endpoint)
         .header(Connection::close())
-        .header(UserAgent(String::from("Status-bot 0.1.0")))
+        .header(UserAgent(String::from("status-bot 0.1.0")))
         .header(ContentType(content_type))
         .body(&body)
         .send();
