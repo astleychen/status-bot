@@ -3,9 +3,14 @@ extern crate irc;
 extern crate mime;
 extern crate regex;
 extern crate rusqlite;
-extern crate rustc_serialize;
 extern crate time;
 extern crate url;
+
+#[macro_use]
+extern crate serde_derive;
+
+extern crate serde;
+extern crate serde_json;
 
 mod bzapi;
 mod pastebin;

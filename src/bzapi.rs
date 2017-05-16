@@ -1,16 +1,16 @@
 use hyper::Client;
 use hyper::header::Connection;
-use rustc_serialize::json;
 use std::collections::HashMap;
 use std::fmt;
 use std::io::Read;
+use serde_json;
 
-#[derive(RustcDecodable)]
+#[derive(Deserialize)]
 struct Response {
     pub bugs: Vec<BugData>,
 }
 
-#[derive(RustcDecodable)]
+#[derive(Deserialize)]
 pub struct BugData {
     pub id: u32,
     pub resolution: String,
@@ -40,10 +40,9 @@ pub fn get_bugs(bugs: &[u32]) -> HashMap<u32, BugData> {
     if let Ok(mut res) = maybe_res {
         let mut body = String::new();
         if let Ok(_) = res.read_to_string(&mut body) {
-            if let Ok(response) = json::decode::<Response>(&body) {
-                for data in response.bugs {
-                    ret.insert(data.id, data);
-                }
+            let response: Response = serde_json::from_str(&body).unwrap();
+            for data in response.bugs {
+                ret.insert(data.id, data);
             }
         }
     }
