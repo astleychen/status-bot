@@ -40,10 +40,10 @@ fn titlecase(input: &str) -> String {
 fn textify(maybe_html: &str) -> String {
     let bug_re = Regex::new("<a href=\"http://bugzilla[^\"]+\">[Bb]ug\\s+(?P<number>\\d+)</a>")
         .unwrap();
-    let text = bug_re.replace_all(maybe_html, "$number");
+    bug_re.replace_all(maybe_html, "bug $number")
 
-    let bug_re = Regex::new("(?P<number>\\d{5,})").unwrap();
-    bug_re.replace_all(&text, "bug $number")
+    // let bug_re = Regex::new("(?P<number>\\d{5,})").unwrap();
+    // bug_re.replace_all(&text, "bug $number")
 }
 
 fn extract_bug_numbers(input: &str) -> Vec<u32> {
